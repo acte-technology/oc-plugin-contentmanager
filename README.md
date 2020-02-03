@@ -9,7 +9,8 @@ WORK IN PROGRESS !!!
 
 
 ## API Routing
-Check routes.php for information.
+
+GET /api/data
 
 Output exemple:
 
