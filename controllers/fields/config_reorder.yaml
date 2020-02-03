@@ -1,0 +1,4 @@
+title: Fields
+modelClass: Acte\ContentManager\Models\Field
+toolbar:
+    buttons: reorder_toolbar

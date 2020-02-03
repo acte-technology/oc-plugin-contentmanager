@@ -1,0 +1,13 @@
+columns:
+  code:
+    label: Code
+    type: text
+    width: '120px'
+  field_type:
+    label: Type
+    relation: field_type
+    select: code
+    width: '60px'
+  data:
+    label: data
+    type: text

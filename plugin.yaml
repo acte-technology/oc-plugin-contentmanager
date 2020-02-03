@@ -1,0 +1,39 @@
+plugin:
+    name: 'acte.contentmanager::lang.plugin.name'
+    description: 'acte.contentmanager::lang.plugin.description'
+    author: 'Acte Solutions'
+    icon: oc-icon-file-code-o
+    homepage: ''
+permissions:
+    acte.contentmanager.manage_fields:
+        tab: 'acte.contentmanager::lang.plugin.name'
+        label: 'Manage fields'
+    acte.contentmanager.manage_fieldtypes:
+        tab: 'acte.contentmanager::lang.plugin.name'
+        label: 'Manage field types'
+navigation:
+    contentmanager:
+        label: 'Content Manager'
+        url: acte/contentmanager/elements
+        icon: icon-file-code-o
+        permissions:
+            - acte.contentmanager.manage_fields
+        sideMenu:
+            elements:
+                label: 'Elements'
+                url: acte/contentmanager/elements
+                icon: icon-sitemap
+                permissions:
+                    - acte.contentmanager.manage_fields
+            fields:
+                label: Fields
+                url: acte/contentmanager/fields
+                icon: icon-cubes
+                permissions:
+                    - acte.contentmanager.manage_fields
+            fieldtypes:
+                label: 'Field Types'
+                url: acte/contentmanager/fieldtypes
+                icon: icon-list-alt
+                permissions:
+                    - acte.contentmanager.manage_fieldtypes

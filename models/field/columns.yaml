@@ -1,0 +1,15 @@
+columns:
+  element:
+    label: Element
+    relation: element
+    select: code
+  code:
+    label: Code
+    type: text
+  field_type:
+    label: Type
+    relation: field_type
+    select: code
+  data:
+    label: data
+    type: text

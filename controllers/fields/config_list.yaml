@@ -1,0 +1,12 @@
+list: $/acte/contentmanager/models/field/columns.yaml
+modelClass: Acte\ContentManager\Models\Field
+title: Fields
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'acte/contentmanager/fields/update/:id'

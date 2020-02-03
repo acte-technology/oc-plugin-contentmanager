@@ -1,0 +1,4 @@
+title: Elements
+modelClass: Acte\ContentManager\Models\Element
+toolbar:
+    buttons: reorder_toolbar

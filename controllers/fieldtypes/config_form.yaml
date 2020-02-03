@@ -1,0 +1,10 @@
+name: FieldTypes
+form: $/acte/contentmanager/models/fieldtype/fields.yaml
+modelClass: Acte\ContentManager\Models\FieldType
+defaultRedirect: acte/contentmanager/fieldtypes
+create:
+    redirect: 'acte/contentmanager/fieldtypes/update/:id'
+    redirectClose: acte/contentmanager/fieldtypes
+update:
+    redirect: acte/contentmanager/fieldtypes
+    redirectClose: acte/contentmanager/fieldtypes

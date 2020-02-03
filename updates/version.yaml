@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table acte_contentmanager_elements'
+    - builder_table_create_acte_contentmanager_elements.php
+1.0.3:
+    - 'Created table acte_contentmanager_fields'
+    - builder_table_create_acte_contentmanager_fields.php
+1.0.4:
+    - 'Created table acte_contentmanager_field_types'
+    - builder_table_create_acte_contentmanager_field_types.php

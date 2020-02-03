@@ -1,0 +1,50 @@
+fields:
+    code:
+      label: Code
+      span: full
+      type: text
+
+    # element:
+    #   label: Element
+    #   type: relation
+    #   nameFrom: code
+    #   span: full
+    field_type:
+      label: Field Type
+      type: relation
+      emptyOption: '--- select field type ---'
+      nameFrom: code
+      span: full
+
+    data:
+      label: Content
+      span: full
+      type: richeditor
+      dependsOn: field_type
+
+    # repeater:
+    #   label: Content
+    #   span: full
+    #   type: repeater
+    #   hidden: true
+    #   form:
+    #     fields:
+    #       name:
+    #         label: name
+    #       code:
+    #         label: code
+    #   dependsOn: field_type
+
+    image:
+      label: 'Single image'
+      type: fileupload
+      mode: image
+      span: full
+      dependsOn: field_type
+
+    images:
+      label: 'Multiple images'
+      type: fileupload
+      mode: image
+      span: full
+      dependsOn: field_type

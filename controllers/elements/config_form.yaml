@@ -1,0 +1,10 @@
+name: Elements
+form: $/acte/contentmanager/models/element/fields.yaml
+modelClass: Acte\ContentManager\Models\Element
+defaultRedirect: acte/contentmanager/elements
+create:
+    redirect: 'acte/contentmanager/elements/update/:id'
+    redirectClose: acte/contentmanager/elements
+update:
+    redirect: acte/contentmanager/elements
+    redirectClose: acte/contentmanager/elements

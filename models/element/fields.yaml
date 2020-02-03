@@ -1,0 +1,13 @@
+fields:
+    name:
+      label: Name
+      span: auto
+      type: text
+    code:
+      label: Code
+      span: auto
+      type: text
+    related_fields:
+      span: full
+      type: partial
+      path: $/acte/contentmanager/controllers/elements/_field_fields.htm

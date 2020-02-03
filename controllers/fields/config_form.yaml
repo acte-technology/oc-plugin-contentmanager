@@ -1,0 +1,10 @@
+name: Fields
+form: $/acte/contentmanager/models/field/fields.yaml
+modelClass: Acte\ContentManager\Models\Field
+defaultRedirect: acte/contentmanager/fields
+create:
+    redirect: 'acte/contentmanager/fields/update/:id'
+    redirectClose: acte/contentmanager/fields
+update:
+    redirect: acte/contentmanager/fields
+    redirectClose: acte/contentmanager/fields

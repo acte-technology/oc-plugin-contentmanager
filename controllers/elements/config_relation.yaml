@@ -1,0 +1,8 @@
+related_fields:
+  label: Fields
+  view:
+    list: $/acte/contentmanager/models/field/columns_relation.yaml
+    showTree: false
+  manage:
+    form: $/acte/contentmanager/models/field/fields_relation.yaml
+    #scope: isNotRoot
