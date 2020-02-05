@@ -1,9 +1,9 @@
 plugin:
-    name: 'acte.contentmanager::lang.plugin.name'
-    description: 'acte.contentmanager::lang.plugin.description'
+    name: 'API Content Manager'
+    description: 'Generate clean API JSON output with OctoberCMS to your JS front-ends (ReactJS, ReactNative, Angular...)'
     author: 'Acte Solutions'
     icon: oc-icon-file-code-o
-    homepage: ''
+    homepage: 'https://github.com/acte-solutions/oc-plugin-contentmanager'
 permissions:
     acte.contentmanager.manage_fields:
         tab: 'acte.contentmanager::lang.plugin.name'
