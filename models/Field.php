@@ -54,25 +54,38 @@ class Field extends Model
             break;
 
           case 'image':
+            try {
+              $image = [
+                'path' => $this->image->path,
+                'thumb' => $this->image->getThumb(300,300,'crop')
+              ];
+            } catch (\Exception $e) {
+              $image = [
+                'path' => null,
+                'thumb' => null
+              ];
+            }
 
-            return [
-              'path' => $this->image->path,
-              'thumb' => $this->image->getThumb(300,300,'crop')
-            ];
+            return $image;
+
+
             break;
 
           case 'images':
 
             $array = [];
-            foreach ($this->images as $key => $item) {
-              $array[] = [
-                'path' => $item->path,
-                'thumb' => $item->getThumb(300,300,'crop')
-              ];
+            try{
+              foreach ($this->images as $key => $item) {
+                $array[] = [
+                  'path' => $item->path,
+                  'thumb' => $item->getThumb(300,300,'crop')
+                ];
+              }
+            } catch (\Exception $e) {
+
             }
 
             return $array;
-
             break;
 
           default:
@@ -87,13 +100,11 @@ class Field extends Model
 
     public function filterFields($fields, $context = null)
     {
-        trace_log($fields);
 
-        //$fields->repeater->hidden = true;
         $fields->data->hidden = true;
         $fields->image->hidden = true;
         $fields->images->hidden = true;
-        
+
         if(isset($fields->field_type) && $fields->field_type->value){
 
 
@@ -121,10 +132,6 @@ class Field extends Model
               // set as default in yaml config
               break;
 
-            // case 'repeater':
-            //   $fields->repeater->hidden = false;
-            //   break;
-
             case 'image':
               $fields->image->hidden = false;
               break;
@@ -138,11 +145,7 @@ class Field extends Model
               break;
           }
 
-
-
         }
-
-        trace_log($fields);
 
     }
 

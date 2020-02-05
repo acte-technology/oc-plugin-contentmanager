@@ -22,19 +22,6 @@ fields:
       type: richeditor
       dependsOn: field_type
 
-    # repeater:
-    #   label: Content
-    #   span: full
-    #   type: repeater
-    #   hidden: true
-    #   form:
-    #     fields:
-    #       name:
-    #         label: name
-    #       code:
-    #         label: code
-    #   dependsOn: field_type
-
     image:
       label: 'Single image'
       type: fileupload

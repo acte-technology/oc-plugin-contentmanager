@@ -9,6 +9,7 @@ fields:
       type: relation
       nameFrom: code
       span: full
+      
     field_type:
       label: Field Type
       type: relation
@@ -18,6 +19,20 @@ fields:
 
     data:
       label: Content
-      type: text
+      span: full
+      type: richeditor
+      dependsOn: field_type
+
+    image:
+      label: 'Single image'
+      type: fileupload
+      mode: image
+      span: full
+      dependsOn: field_type
+
+    images:
+      label: 'Multiple images'
+      type: fileupload
+      mode: image
       span: full
       dependsOn: field_type
