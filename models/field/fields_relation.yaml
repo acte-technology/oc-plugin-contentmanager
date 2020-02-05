@@ -3,6 +3,7 @@ fields:
       label: Code
       span: full
       type: text
+      placeholder: 'my_code or myCode'
 
     # element:
     #   label: Element
@@ -26,6 +27,10 @@ fields:
       label: 'Single image'
       type: fileupload
       mode: image
+      imageHeight: 300
+      imageWidth: 300
+      thumbOptions:
+        mode: auto
       span: full
       dependsOn: field_type
 
@@ -33,5 +38,9 @@ fields:
       label: 'Multiple images'
       type: fileupload
       mode: image
+      imageHeight: 150
+      imageWidth: 150
+      thumbOptions:
+        mode: auto
       span: full
       dependsOn: field_type

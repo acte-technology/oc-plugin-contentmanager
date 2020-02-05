@@ -3,12 +3,21 @@
 use Model;
 use Log;
 use Acte\ContentManager\Models\FieldType;
+use Config;
+
 
 /**
  * Model
  */
 class Field extends Model
 {
+
+    public $validations; //config array
+
+    public function __construct(){
+      $this->validations = Config::get('acte.contentmanager::config.validation', []);
+    }
+
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\Sortable;
 
@@ -35,12 +44,15 @@ class Field extends Model
     ];
 
     public $rules = [
-      'code' => 'required',
-      'field_type_id' => 'required|numeric'
+      'code' => 'required|alpha_dash',
+      'field_type_id' => 'required|numeric',
+      'image' => 'nullable|image|max:2MB',
+      'images' => 'required',
+      'images.*' => 'nullable|image|max:2MB'
     ];
 
     public function setCodeAttribute($value){
-        $this->attributes['code'] = strtolower($value);
+        $this->attributes['code'] = str_replace([' ', '-'], '_', $value);;
     }
 
     public function getContentAttribute(){
@@ -107,8 +119,6 @@ class Field extends Model
 
         if(isset($fields->field_type) && $fields->field_type->value){
 
-
-
           $fieldTypeCode = FieldType::findOrFail($fields->field_type->value)->code;
 
           switch ($fieldTypeCode) {
@@ -146,7 +156,6 @@ class Field extends Model
           }
 
         }
-
     }
 
 }
