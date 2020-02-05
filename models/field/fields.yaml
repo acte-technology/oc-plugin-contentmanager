@@ -18,6 +18,41 @@ fields:
 
     data:
       label: Content
-      type: text
+      span: full
+      type: richeditor
+      dependsOn: field_type
+
+    # repeater:
+    #   label: Content
+    #   span: full
+    #   type: repeater
+    #   hidden: true
+    #   form:
+    #     fields:
+    #       name:
+    #         label: name
+    #       code:
+    #         label: code
+    #   dependsOn: field_type
+
+    image:
+      label: 'Single image'
+      type: fileupload
+      mode: image
+      imageHeight: 300
+      imageWidth: 300
+      thumbOptions:
+        mode: auto
+      span: full
+      dependsOn: field_type
+
+    images:
+      label: 'Multiple images'
+      type: fileupload
+      mode: image
+      imageHeight: 150
+      imageWidth: 150
+      thumbOptions:
+        mode: auto     
       span: full
       dependsOn: field_type

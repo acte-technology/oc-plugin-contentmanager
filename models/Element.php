@@ -22,11 +22,11 @@ class Element extends Model
 
     public $rules = [
       'name' => 'required',
-      'code' => 'required|unique:acte_contentmanager_elements,code'
+      'code' => 'required|alpha_dash|unique:acte_contentmanager_elements,code'
     ];
 
     public function setCodeAttribute($value){
-        $this->attributes['code'] = strtolower($value);
+        $this->attributes['code'] = str_replace([' ', '-'], '_', $value);;
     }
 
 }

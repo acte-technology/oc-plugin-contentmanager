@@ -3,13 +3,17 @@ columns:
     label: Element
     relation: element
     select: code
+    searchable: true
   code:
     label: Code
     type: text
+    searchable: true
   field_type:
     label: Type
     relation: field_type
     select: code
+    searchable: true
   data:
     label: data
     type: text
+    searchable: true
