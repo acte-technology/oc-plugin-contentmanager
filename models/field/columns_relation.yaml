@@ -3,11 +3,14 @@ columns:
     label: Code
     type: text
     width: '120px'
+    searchable: true
   field_type:
     label: Type
     relation: field_type
     select: code
     width: '60px'
+    searchable: true
   data:
     label: data
     type: text
+    searchable: true

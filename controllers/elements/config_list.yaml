@@ -3,6 +3,7 @@ modelClass: Acte\ContentManager\Models\Element
 title: Elements
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
+showTree: true
 showCheckboxes: true
 recordsPerPage: 20
 toolbar:

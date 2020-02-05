@@ -1,4 +1,7 @@
 columns:
+  nest_left:
+    label: nested
+    invisible: true
   name:
     label: name
     type: text
