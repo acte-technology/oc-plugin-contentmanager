@@ -1,21 +1,28 @@
 fields:
     code:
       label: Code
-      span: full
+      span: auto
       type: text
 
     element:
       label: Element
       type: relation
       nameFrom: code
-      span: full
-      
+      span: auto
+
     field_type:
       label: Field Type
       type: relation
       emptyOption: '--- select field type ---'
       nameFrom: code
-      span: full
+      span: auto
+
+    format:
+      label: 'Image format'
+      type: relation
+      nameFrom: name
+      span: auto
+      dependsOn: field_type
 
     data:
       label: Content
@@ -42,6 +49,6 @@ fields:
       imageHeight: 150
       imageWidth: 150
       thumbOptions:
-        mode: auto     
+        mode: auto
       span: full
       dependsOn: field_type
