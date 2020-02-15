@@ -15,13 +15,22 @@ fields:
       type: relation
       emptyOption: '--- select field type ---'
       nameFrom: code
-      span: full
+      span: auto
 
+    format:
+      label: 'Image format'
+      type: relation
+      nameFrom: name
+      span: auto
+      dependsOn: field_type
+      
     data:
       label: Content
       span: full
       type: richeditor
       dependsOn: field_type
+
+
 
     image:
       label: 'Single image'
