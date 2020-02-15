@@ -17,3 +17,5 @@
 1.0.7:
     - 'Updated table acte_contentmanager_fields'
     - builder_table_update_acte_contentmanager_fields.php
+1.0.8:
+    - 'Image thumb genertion bug fix. Added default thumb in config/config.php'

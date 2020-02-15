@@ -12,10 +12,10 @@ use Config;
 class Field extends Model
 {
 
-    public $validations; //config array
+    public $thumbDefaults; //config array
 
     public function __construct(){
-      $this->validations = Config::get('acte.contentmanager::config.validation', []);
+      $this->thumbDefaults = Config::get('acte.contentmanager::config.thumbnail', []);
     }
 
     use \October\Rain\Database\Traits\Validation;
@@ -68,34 +68,35 @@ class Field extends Model
             break;
 
           case 'image':
-            try {
 
-              if($this->format_id){
-                $format = $this->format;
+            if( $this->image ){
 
-                $width = $format->width;
-                $height = $format->height;
-                $mode = $format->mode;
-                $quality = $format->quality;
 
-                $path = $this->image->getThumb($width, $height, ['mode' => $mode, 'quality' => $quality]);
-
-              } else {
-
+                $thumb = $this->image->getThumb($this->thumbDefaults['width'],$this->thumbDefaults['height'],'crop');
                 $path = $this->image->path;
 
-              }
+                if($this->format_id){
+                  $format = $this->format;
 
-              $image = [
-                'path' => $path,
-                'thumb' => $this->image->getThumb(300,300,'crop')
-              ];
-            } catch (\Exception $e) {
-              $image = [
-                'path' => null,
-                'thumb' => null
-              ];
+                  $width = $format->width;
+                  $height = $format->height;
+                  $mode = $format->mode;
+                  $quality = $format->quality;
+
+                  if($this->image->getWidthAttribute() > $width){
+                    $path = $this->image->getThumb($width, $height, ['mode' => $mode, 'quality' => $quality]);
+                  }
+                }
+
+            } else {
+              $path = null;
+              $thumb = null;
             }
+
+            $image = [
+              'path' => $path,
+              'thumb' => $thumb,
+            ];
 
             return $image;
 
@@ -105,15 +106,29 @@ class Field extends Model
           case 'images':
 
             $array = [];
-            try{
-              foreach ($this->images as $key => $item) {
-                $array[] = [
-                  'path' => $item->path,
-                  'thumb' => $item->getThumb(300,300,'crop')
-                ];
-              }
-            } catch (\Exception $e) {
+            if( $this->images() ){
 
+              foreach ($this->images as $key => $image) {
+
+                $thumb = $image->getThumb($this->thumbDefaults['width'],$this->thumbDefaults['height'],'crop');
+                $path = $image->path;
+
+                if($this->format_id){
+                  $format = $this->format;
+
+                  $width = $format->width;
+                  $height = $format->height;
+                  $mode = $format->mode;
+                  $quality = $format->quality;
+
+                  if($image->getWidthAttribute() > $width){
+                    $path = $image->getThumb($width, $height, ['mode' => $mode, 'quality' => $quality]);
+                  }
+                }
+
+                $array[] = [ 'path' => $path, 'thumb' => $thumb ];
+
+              }
             }
 
             return $array;
@@ -178,18 +193,6 @@ class Field extends Model
           }
 
         }
-    }
-
-    public function getImageFormatOptions(){
-
-      return [
-        'tiny' => 'Tiny 150px',
-        'small' => 'Small 300px',
-        'medium' => 'Medium 600px',
-        'large' => 'Large 1024px',
-        'x-large' => 'X-Large 2048px'
-      ];
-
     }
 
 }

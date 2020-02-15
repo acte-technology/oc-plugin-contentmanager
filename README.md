@@ -1,11 +1,24 @@
 # API Content Manager
 
+* Generate API content with ease for your front-end.
+
 ## Work in progress
 
-This is a testing version !!!
-WORK IN PROGRESS !!!
-* git clone https://github.com/acte-solutions/oc-plugin-contentmanager.git 
-* Install in plugins/acte/contentmanager/
+* git clone https://github.com/acte-solutions/oc-plugin-contentmanager.git in plugins/acte/contentmanager/
+* or install Acte.ContentManager from OctoberCMS Market Place
+
+
+## Features
+
+* Add multiple field types to your API:
+ * string
+ * number
+ * textarea
+ * richeditor
+ * image
+ * images
+* Auto resize image(s) path with custom formats.
+* Image(s) thumb generation. 300x300 by default, can be changed in config/config.php
 
 
 ## API Routing
