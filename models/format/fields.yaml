@@ -1,0 +1,27 @@
+fields:
+  name:
+    label: Name
+    span: auto
+    type: text
+  width:
+    label: Width
+    span: auto
+    type: number
+  height:
+    label: Height
+    span: auto
+    type: number
+  mode:
+    label: Mode
+    options:
+        auto: Auto
+        crop: Crop
+    showSearch: true
+    span: auto
+    default: auto
+    type: dropdown
+  quality:
+    label: Quality
+    span: auto
+    default: '80'
+    type: number

@@ -11,3 +11,9 @@
     - builder_table_create_acte_contentmanager_field_types.php
 1.0.5:
     - 'Bug fixing and add some validations'
+1.0.6:
+    - 'Created table acte_contentmanager_formats'
+    - builder_table_create_acte_contentmanager_formats.php
+1.0.7:
+    - 'Updated table acte_contentmanager_fields'
+    - builder_table_update_acte_contentmanager_fields.php

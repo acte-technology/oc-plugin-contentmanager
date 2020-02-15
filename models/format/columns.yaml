@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: name
+        type: text
+    width:
+        label: width
+        type: number
+    height:
+        label: height
+        type: number
+    mode:
+        label: mode
+        type: text
+    quality:
+        label: quality
+        type: number

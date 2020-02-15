@@ -32,7 +32,9 @@ class Field extends Model
 
     public $belongsTo = [
       'element' => ['Acte\ContentManager\Models\Element', 'key' => 'element_id'],
-      'field_type' => ['Acte\ContentManager\Models\FieldType', 'key' => 'field_type_id']
+      'field_type' => ['Acte\ContentManager\Models\FieldType', 'key' => 'field_type_id'],
+      'format' => ['Acte\ContentManager\Models\Format', 'key' => 'format_id']
+
     ];
 
     public $attachOne = [
@@ -67,8 +69,25 @@ class Field extends Model
 
           case 'image':
             try {
+
+              if($this->format_id){
+                $format = $this->format;
+
+                $width = $format->width;
+                $height = $format->height;
+                $mode = $format->mode;
+                $quality = $format->quality;
+
+                $path = $this->image->getThumb($width, $height, ['mode' => $mode, 'quality' => $quality]);
+
+              } else {
+
+                $path = $this->image->path;
+
+              }
+
               $image = [
-                'path' => $this->image->path,
+                'path' => $path,
                 'thumb' => $this->image->getThumb(300,300,'crop')
               ];
             } catch (\Exception $e) {
@@ -115,6 +134,7 @@ class Field extends Model
 
         $fields->data->hidden = true;
         $fields->image->hidden = true;
+        $fields->format->hidden = true;
         $fields->images->hidden = true;
 
         if(isset($fields->field_type) && $fields->field_type->value){
@@ -144,10 +164,12 @@ class Field extends Model
 
             case 'image':
               $fields->image->hidden = false;
+              $fields->format->hidden = false;
               break;
 
             case 'images':
               $fields->images->hidden = false;
+              $fields->format->hidden = false;
               break;
 
             default:
@@ -156,6 +178,18 @@ class Field extends Model
           }
 
         }
+    }
+
+    public function getImageFormatOptions(){
+
+      return [
+        'tiny' => 'Tiny 150px',
+        'small' => 'Small 300px',
+        'medium' => 'Medium 600px',
+        'large' => 'Large 1024px',
+        'x-large' => 'X-Large 2048px'
+      ];
+
     }
 
 }

@@ -11,6 +11,9 @@ permissions:
     acte.contentmanager.manage_fieldtypes:
         tab: 'acte.contentmanager::lang.plugin.name'
         label: 'Manage field types'
+    acte.contentmanager.manage_formats:
+        tab: 'acte.contentmanager::lang.plugin.name'
+        label: 'Manage image formats'
 navigation:
     contentmanager:
         label: 'Content Manager'
@@ -20,7 +23,7 @@ navigation:
             - acte.contentmanager.manage_fields
         sideMenu:
             elements:
-                label: 'Elements'
+                label: Elements
                 url: acte/contentmanager/elements
                 icon: icon-sitemap
                 permissions:
@@ -37,3 +40,10 @@ navigation:
                 icon: icon-list-alt
                 permissions:
                     - acte.contentmanager.manage_fieldtypes
+            formats:
+                label: 'Image formats'
+                url: acte/contentmanager/formats
+                icon: icon-image
+                permissions:
+                    - acte.contentmanager.manage_formats
+                attributes: {  }

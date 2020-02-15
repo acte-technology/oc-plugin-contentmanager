@@ -1,0 +1,10 @@
+name: Formats
+form: $/acte/contentmanager/models/format/fields.yaml
+modelClass: Acte\ContentManager\Models\Format
+defaultRedirect: acte/contentmanager/formats
+create:
+    redirect: 'acte/contentmanager/formats/update/:id'
+    redirectClose: acte/contentmanager/formats
+update:
+    redirect: acte/contentmanager/formats
+    redirectClose: acte/contentmanager/formats
