@@ -11,12 +11,13 @@
 ## Features
 
 * Add multiple field types to your API:
- * string
- * number
- * textarea
- * richeditor
- * image
- * images
+  * string
+  * number
+  * textarea
+  * richeditor
+  * image
+  * images
+  
 * Auto resize image(s) path with custom formats.
 * Image(s) thumb generation. 300x300 by default, can be changed in config/config.php
 
